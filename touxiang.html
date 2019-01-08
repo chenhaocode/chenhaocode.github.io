@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="Keywords" content="blog"/>
     <meta name="Description" content="blog"/>
-    <title>远洋的网上自留地</title>
+    <title>{{title}}</title>
     <link rel="shortcut icon" href="/static/favicon.png"/>
     <link rel="stylesheet" type="text/css" href="/main.css" />
     <script src="http://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
@@ -22,9 +22,9 @@
     	</ul>
     </div>
 	<div class="wrap-header">
-	<h1>
-    <a href="/" id="title"></a>
-	</h1>
+			<h1>
+            <a href="/" id="title"></a>
+			</h1>
 	</div>
 <div id="md" style="display: none;">
 <!-- markdown -->
@@ -46,9 +46,10 @@
 </div>
 <br>
 <br>
-    <!-- UY BEGIN -->
-<div id="vcomments"></div>
-         <script>
+    <div id="disqus_thread"></div>
+	<div class="footer">
+		<div id="vcomments">
+</div>         <script>
         new Valine({
     el: '#vcomments' ,
     appId: '9xv7BruNNkPofAy2j9xfjn4t-gzGzoHsz',
@@ -59,8 +60,6 @@
     placeholder: 'ヾﾉ≧∀≦)o来评论下吧!' 
 });
     </script>
-<!-- UY END -->
-	<div class="footer">
 		<p>© Copyright 2016 Designed by sweetly</p>
 	</div>
 </div>
@@ -89,17 +88,23 @@ $(document).ready(function() {
         dataType: "json",
         success: function(data) {
             $("#title").html(data.name);
-            var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
-            var pagesHtml = pagesTemplate.render({"pages": data.pages});
-            $("#pages").append(pagesHtml);
+            var pages = [];
             //path
             var path = "touxiang.html";
             //path end
             var now = 0;
-            for (var i = 0; i < data.posts.length; ++i)
-                if (path == data.posts[i].path)
+            for (var i = 0; i < data.pages.length; ++i)
+                if (path == data.pages[i].path) {
                     now = i;
-            var post = data.posts[now];
+                    pages.push({"select": true, "path": data.pages[i].path, "title": data.pages[i].title});
+                }
+                else {
+                    pages.push({"select": false, "path": data.pages[i].path, "title": data.pages[i].title});
+                }
+            var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
+            var pagesHtml = pagesTemplate.render({"pages": pages});
+            $("#pages").append(pagesHtml);
+            var post = data.pages[now];
             var tmp = post.tags.split(" ");
             var tags = [];
             for (var i = 0; i < tmp.length; ++i)
