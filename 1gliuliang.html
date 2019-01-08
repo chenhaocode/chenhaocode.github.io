@@ -36,11 +36,18 @@
 <!-- content end -->
 </div>
 <br>
-<br>
-    <!-- UY BEGIN -->
-<div id="uyan_frame"></div>
-<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2087766"></script>
-<!-- UY END -->
+<br>  <div id="vcomments">
+</div>         <script>
+        new Valine({
+    el: '#vcomments' ,
+    appId: '9xv7BruNNkPofAy2j9xfjn4t-gzGzoHsz',
+    appKey: 'jBVz6ajeS91iHsCngQqsc5BA',
+    notify:false, 
+    verify:false, 
+    avatar:'mm', 
+    placeholder: 'ヾﾉ≧∀≦)o来评论下吧!' 
+});
+    </script>
 	<div class="footer">
 		<p>© Copyright 2016 Designed by sweetly</p>
 	</div>
@@ -105,5 +112,9 @@ $(document).ready(function() {
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true}});
 </script>
+	   <!--Leancloud 操作库:-->
+    <script src="http://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <!--Valine 的核心代码库:-->
+    <script src="http://unpkg.com/valine/dist/Valine.min.js"></script>
 </body>
 </html>
