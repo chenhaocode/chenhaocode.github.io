@@ -6,6 +6,10 @@
     <meta name="Keywords" content="blog"/>
     <meta name="Description" content="blog"/>
     <title>远洋的网上自留地</title>
+    <!--Leancloud 操作库:-->
+    <script src="http://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <!--Valine 的核心代码库:-->
+    <script src="http://unpkg.com/valine/dist/Valine.min.js"></script>
     <link rel="shortcut icon" href="/static/favicon.png"/>
     <link rel="stylesheet" type="text/css" href="/main.css" />
 </head>
@@ -38,10 +42,17 @@
 </div>
 <br>
 <br>
-    <!-- UY BEGIN -->
-<div id="uyan_frame"></div>
-<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2087766"></script>
-<!-- UY END -->
+    <div class="comment"></div>
+    <script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment', // 
+            app_id: '9xv7BruNNkPofAy2j9xfjn4t-gzGzoHsz', // 这里填写上面得到的APP ID
+            app_key: 'jBVz6ajeS91iHsCngQqsc5BA', // 这里填写上面得到的APP KEY
+            placeholder: 'ヾﾉ≧∀≦)o来下吧!' // [v1.0.7 new]留言框占位提示文字
+        });
+    </script>
 	<div class="footer">
 		<p>© Copyright 2016 Designed by sweetly</p>
 	</div>
