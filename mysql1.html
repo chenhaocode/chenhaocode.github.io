@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="Keywords" content="blog"/>
     <meta name="Description" content="blog"/>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <!--Valine 的核心代码库:-->
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
     <title>远洋的网上自留地</title>
     <link rel="shortcut icon" href="/static/favicon.png"/>
     <link rel="stylesheet" type="text/css" href="/main.css" />
@@ -47,10 +50,19 @@ error manager of pid-file quit without updating file
 </div>
 <br>
 <br>
-    <!-- UY BEGIN -->
-<div id="uyan_frame"></div>
-<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2087766"></script>
-<!-- UY END -->
+<div id="vcomments"></div>         
+<script>
+    new Valine({
+    av: AV,  
+    el: '#vcomments' ,
+    appId: '9xv7BruNNkPofAy2j9xfjn4t-gzGzoHsz',
+    appKey: 'jBVz6ajeS91iHsCngQqsc5BA',
+    notify:false, 
+    verify:false, 
+    avatar:'mm', 
+    placeholder: 'ヾﾉ≧∀≦)o来评论下吧!' 
+});
+    </script>
 	<div class="footer">
 		<p>© Copyright 2016 Designed by sweetly</p>
 	</div>
