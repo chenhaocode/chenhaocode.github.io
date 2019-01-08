@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="Keywords" content="blog"/>
     <meta name="Description" content="blog"/>
-    <title>{{title}}</title>
+    <title>{title}</title>
     <link rel="shortcut icon" href="/static/favicon.png"/>
     <link rel="stylesheet" type="text/css" href="/main.css" />
 </head>
@@ -36,9 +36,10 @@ before begin to write please click 'new post' or 'new page' first
 <br>
 <br>
     <!-- UY BEGIN -->
-<div id="vcomments"></div>
-         <script>
-        new Valine({
+<div id="vcomments"></div>         
+<script>
+    new Valine({
+    av: AV,  
     el: '#vcomments' ,
     appId: '9xv7BruNNkPofAy2j9xfjn4t-gzGzoHsz',
     appKey: 'jBVz6ajeS91iHsCngQqsc5BA',
